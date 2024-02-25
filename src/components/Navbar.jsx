@@ -4,7 +4,7 @@ function Navbar() {
     return (
         <div className="px-10 py-5"> 
             <Link to='/'>
-                <h1 className="text-4xl">Workout Buddy</h1>
+                <h1 className="text-5xl font-bold">Workout Buddy</h1>
             </Link>
         </div>
     )
