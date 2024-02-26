@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import ExerciseCard from "../components/ExerciseCard";
+import AddWorkout from "../components/AddWorkout";
 
 function Home() {
 
@@ -17,14 +18,15 @@ function Home() {
     }, [])
 
     return (
-        <div>
-            <div className="flex">
+        <div className="flex justify-center mt-10 gap-x-20">
+            <div className="flex flex-wrap gap-x-7 gap-y-1 px-10 max-w-xl ">
                 {
                     allWorkouts && allWorkouts.map((workout) => (
                         <ExerciseCard key={workout._id} title={workout.title} reps={workout.reps} load={workout.load} />
                     ))
                 }
             </div>
+            <AddWorkout />
         </div>
     )
 }
