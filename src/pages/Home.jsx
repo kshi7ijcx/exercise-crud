@@ -1,21 +1,24 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import ExerciseCard from "../components/ExerciseCard";
 import AddWorkout from "../components/AddWorkout";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 function Home() {
 
-    const [allWorkouts, setAllWorkouts] = useState(null);
+    const { allWorkouts, dispatch } = useWorkoutsContext();
 
     useEffect(() => {
         const fetchAllWorkouts = async () => {
             const response = await fetch('http://localhost:8000/api/workouts/');
             const json = await response.json();
             if (response.ok) {
-                setAllWorkouts(json);
+                dispatch({ type: "SET_WORKOUTS", payload: json });
             }
+            console.log(json)
+            console.log(allWorkouts)
         }
         fetchAllWorkouts();
-    }, [])
+    }, []);
 
     return (
         <div className="flex justify-center mt-10 gap-x-20">
