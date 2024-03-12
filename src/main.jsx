@@ -5,13 +5,16 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WorkoutContextProvider } from './context/workoutContext'
+import { AuthContextProvider } from './context/authContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <WorkoutContextProvider>
-        <App />
-      </WorkoutContextProvider>
+      <AuthContextProvider>
+        <WorkoutContextProvider>
+          <App />
+        </WorkoutContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )
