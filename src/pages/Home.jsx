@@ -19,7 +19,7 @@ function Home() {
     }, [dispatch]);
 
     return (
-        <div>
+        <div className="flex">
             <div className="flex flex-wrap gap-x-7 gap-y-1 px-10 max-w-xl ">
                 {
                     allWorkouts && allWorkouts.map((workout) => (
